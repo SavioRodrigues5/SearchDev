@@ -30,10 +30,10 @@ A clean, dark-themed web app that lets you instantly look up any GitHub user's p
 
 📁 Project Structure
 SearchDev/
-│
-├── index.html      # App structure and search UI
-├── style.css       # Dark theme, layout, responsive breakpoints
-└── app.js          # API calls, DOM rendering, event listeners
+
+index.html      # App structure and search UI
+style.css       # Dark theme, layout, responsive breakpoints
+script.js          # API calls, DOM rendering, event listeners
 
 ---
 
