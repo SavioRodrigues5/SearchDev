@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SearchDev</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <title>GitHub Compare</title>
+  <link rel="stylesheet" href="style2.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet"/>
 </head>
 <body>
 
-  <div class="grid-overlay"></div>
+  <div class="compare-page grid-overlay"></div>
 
+  <div class="grid-overlay"></div>
   <header class="site-header">
     <div class="logo">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
@@ -19,51 +20,80 @@
       SearchDev/ 
     </div>
     <nav class="site-nav">
-      <a href="#">Analyze</a>
-      <a href="#">Compare</a>
-      <a href="#">Trending</a>
+      <a href="index.html">Analyze</a>
+      <a href="compare.html">Compare</a>
+      <a href="trending.html">Trending</a>
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-tag">GitHub search Tool</div>
-      <h1 class="hero-title">
-        Decode any<br/>
-        <span class="accent">developer</span><br/>
-        at a glance.
-      </h1>
-      <p class="hero-sub">Enter a GitHub username to instantly surface repos, languages, activity, and contribution insights.</p>
 
-      <div class="search-wrapper">
+ <main>
+    <section class="hero">
+      <div class="hero-tag">Developer Comparison Tool</div>
+      <h1 class="hero-title">
+        Compare any two<br/>
+        <span class="accent">developers</span><br/>
+        side by side.
+      </h1>
+      <p class="hero-sub">Enter two GitHub usernames to compare their profiles, repositories, and contribution stats head to head.</p>
+ 
+      <div class="compare-inputs">
         <div class="search-bar">
           <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
           </svg>
           <input
             type="text"
-            id="search-input"
+            id="search-input1"
             class="search-input"
-            placeholder="Please enter a GitHub username"
+            placeholder="First username"
             autocomplete="off"
             spellcheck="false"
           />
-          <button class="search-btn" id="search-btn">
-            <span>Analyze</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-            </svg>
-          </button>
         </div>
-        <div class="search-hint">Try <button class="hint-btn" onclick="document.getElementById('search-input').value='Saviorodrigues5'">Saviorodrigues5</button> or <button class="hint-btn" onclick="document.getElementById('search-input').value='gaearon'">gaearon</button></div>
+ 
+        <div class="compare-vs">VS</div>
+ 
+        <div class="search-bar">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input
+            type="text"
+            id="search-input2"
+            class="search-input"
+            placeholder="Second username"
+            autocomplete="off"
+            spellcheck="false"
+          />
+        </div>
+ 
+        <button class="search-btn" id="search-btn">
+          <span>Compare</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </button>
+      </div>
+ 
+      <div class="search-hint">
+        Try
+        <button class="hint-btn" onclick="fillCompare('torvalds','gaearon')">torvalds vs gaearon</button>
+        or
+        <button class="hint-btn" onclick="fillCompare('SavioRodrigues5','gaearon')">SavioRodrigues5 vs gaearon</button>
       </div>
     </section>
-
-    <!-- Results injected here by app.js -->
+ 
+    <!-- Results injected here -->
     <section class="results" id="results" aria-live="polite"></section>
   </main>
-
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script src="script.js"></script>
-</body>
-</html>
+ 
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="compare.js"></script>
+  <script>
+  function fillCompare(a, b) {
+    document.getElementById('search-input1').value = a;
+    document.getElementById('search-input2').value = b;
+}
+  </script>
+</body>  
